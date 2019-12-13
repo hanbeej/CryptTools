@@ -88,6 +88,18 @@ def shift_by(char, shift):
         char = chr(aux)
     return char
 
+def shift_by_affine(char, shift, affine):
+    if char.isalpha():
+        if (shift*(ord(char)-96) +affine)%26==0:
+            aux = 122
+        else:
+            aux = (shift*(ord(char)-96) +affine)%26 +96
+        z = 'z' if char.islower() else 'Z'
+        if aux > ord(z):
+            aux -= MODULE
+        char = chr(aux)
+    return char
+
 def reversed_shifts(text, verbose=False):
     most_frequent = ord(most_frequent_char(text))
     if verbose:

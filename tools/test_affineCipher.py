@@ -40,5 +40,4 @@ if __name__ == "__main__":
         print(encrypted)
         if args.verbose:
             print(f"\nEncrypted text most frequent character: {most_frequent_char(clean(encrypted))}")
-    else:
-        crack(text)
+    

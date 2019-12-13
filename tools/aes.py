@@ -20,14 +20,14 @@ MODES = {
 def set_args():
     global args
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t", "--text", help="text to read from (by default: standard input bytes). \
-        If text contains non-printable characters (special bytes) then you will need to use --infile and --outfile in order to do the conversion.")
-    parser.add_argument("-in", "--infile", help="file containing the text to read from")
-    parser.add_argument("-out", "--outfile", help="file to write the result")
-    parser.add_argument("-k", "--key", help="AES key used to encrypt or decrypt")
-    parser.add_argument("-kf", "--keyfile", help="file containing the AES key used to encrypt or decrypt")
-    parser.add_argument("-m", "--mode", help="operation mode, by default CBC. Supported: " + ', '.join(MODES.keys()))
-    parser.add_argument("--decrypt", action='store_true', help="use the key to decrypt the text")
+    parser.add_argument("-t", "--text", help="읽을 텍스트(기본값: 표준 입력 바이트) \
+        텍스트에 인쇄할 수 없는 문자(특수 바이트)가 포함된 경우 변환을 수행하려면 --infile 및 --outfile을 사용.")
+    parser.add_argument("-in", "--infile", help="읽을 텍스트를 포함하는 파일")
+    parser.add_argument("-out", "--outfile", help="결과값 파일")
+    parser.add_argument("-k", "--key", help="암호화,복호화에 필요한 AES key 값")
+    parser.add_argument("-kf", "--keyfile", help="암호화,복호호에 필요한 AES key 값이 있는 파일")
+    parser.add_argument("-m", "--mode", help="operation mode, 기본값 CBC. Supported: " + ', '.join(MODES.keys()))
+    parser.add_argument("--decrypt", action='store_true', help="키값을 이용해 텍스트를 복호화")
 
     args = parser.parse_args()
 

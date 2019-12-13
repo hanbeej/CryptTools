@@ -9,14 +9,14 @@ import enchant
 def set_args():
     global args
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t", "--text", help="text to read from. If not specified the program will read from standard input")
-    parser.add_argument("-k", "--key", help="key used to encrypt. If the length of the text is different from the key length, it does not work. ", type=int)
-    parser.add_argument("-l", "--lang", help=f"available languages: {enchant.list_languages()} (default: en_US). Only useful if no key is provided", default='en_US')
-    parser.add_argument("-V", "--verbose", action='store_true', help="show extra information")
-    parser.add_argument("-A", "--all", action='store_true', help="show decrypted text for each tested key")
-    parser.add_argument("-D", "--debug", action='store_true', help="show information about text validation")
-    parser.add_argument("-T", "--threshold", help="valid word count percentage to mark the whole text as valid language (default: 50)", type=int, default=50)
-    parser.add_argument("--beep", action='store_true', help="plays a beep sound when program finishes. May require SOX to be installed")
+    parser.add_argument("-t", "--text", help="암호화할 텍스트를 입력. 텍스트 입력값은 최대 9자리.")
+    parser.add_argument("-k", "--key", help="텍스트를 암호화할 키값을 입력. ", type=int)
+    parser.add_argument("-l", "--lang", help=f"사용가능한 언어: {enchant.list_languages()} (default: en_US). 현재 영어만 제공", default='en_US')
+    parser.add_argument("-V", "--verbose", action='store_true', help="여분의 정보를 알려줌")
+    parser.add_argument("-A", "--all", action='store_true', help="테스트된 각 키에 대해 해독된 텍스트 표시")
+    parser.add_argument("-D", "--debug", action='store_true', help="텍스트 유효성 확인에 대한 정보 표시")
+    parser.add_argument("-T", "--threshold", help="전체 텍스트에 유효한 단어 수 비율 (default: 50)", type=int, default=50)
+    parser.add_argument("--beep", action='store_true', help="프로그램이 끝나면 삐 소리가 난다. SOX를 설치해야 할 수 있음")
     args = parser.parse_args()
 
 

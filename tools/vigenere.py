@@ -17,15 +17,15 @@ TEST_2_MAX_TEXT_LENGTH = 32
 def set_args():
     global args
     parser = argparse.ArgumentParser()
-    parser.add_argument("-t", "--text", help="text to read from. If not specified the program will read from standard input")
-    parser.add_argument("-k", "--key", help="key used to encrypt or decrypt. If no key is provided the program will try to crack and decrypt the text")
-    parser.add_argument("--decrypt", action='store_true', help="use the key to decrypt the text. If no key is provided this argument is redundant")
-    parser.add_argument("--exhaustive", action='store_true', help=f"tests all possible keys. If not provided this program only will test keys below length {KEY_LENGTH_THRESHOLD} while cracking")
-    parser.add_argument("-V", "--verbose", action='store_true', help="show extra information")
-    parser.add_argument("-A", "--all", action='store_true', help="show decrypted text for each tested key")
-    parser.add_argument("-D", "--debug", action='store_true', help="show information about text validation")
-    parser.add_argument("-T", "--threshold", help="valid word count percentage to mark the whole text as valid language (default: 50)", type=int, default=50)
-    parser.add_argument("--beep", action='store_true', help="plays a beep sound when program finishes. May require SOX to be installed")
+    parser.add_argument("-t", "--text", help="텍스트를 읽어들임. 만일 프로그램을 특정하지 않았다면 기본적 입력값을 읽어들임")
+    parser.add_argument("-k", "--key", help="암호화,복호화에 필요한 키값. 만일 키값이 제공되지 않았으면 크렉을 시도 텍스트를 복호화")
+    parser.add_argument("--decrypt", action='store_true', help="키값을 이용해 텍스트를 복호화. 만일 키가 없을경우 다른 argument와 중복")
+    parser.add_argument("--exhaustive", action='store_true', help=f"모든 가능한 키값을 테스트. 이 프로그램이 제공되지 않는 경우, 길이보다 작은 키만 테스트할 수 있음 {KEY_LENGTH_THRESHOLD} 크렉킹 동안")
+    parser.add_argument("-V", "--verbose", action='store_true', help="여분의 정보를 알려줌")
+    parser.add_argument("-A", "--all", action='store_true', help="테스트된 각 키에 대해 해독된 텍스트 표시")
+    parser.add_argument("-D", "--debug", action='store_true', help="텍스트 유효성 확인에 대한 정보 표시")
+    parser.add_argument("-T", "--threshold", help="전체 텍스트에 유효한 단어 수 비율 (default: 50)", type=int, default=50)
+    parser.add_argument("--beep", action='store_true', help="프로그램이 끝나면 삐 소리가 난다. SOX를 설치해야 할 수 있음")
     args = parser.parse_args()
 
 def vigenere(text, key):

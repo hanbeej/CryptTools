@@ -21,7 +21,7 @@ def set_args():
 
 
 
-def caesar(text, shift, affine):
+def affineCipher(text, shift, affine):
     """Encrypts/Decrypts a `text` using the caesar substitution cipher with specified `shift` key"""
     if shift < 0 or shift > MODULE:
         error(f"key must be between 0 and {MODULE}")
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     if args.key is not None:
         if args.verbose:
             print(f"Original text most frequent character: {most_frequent_char(clean(text))}\n")
-        encrypted = caesar(text, args.key, args.affine)
+        encrypted = affineCipher(text, args.key, args.affine)
         print(encrypted)
         if args.verbose:
             print(f"\nEncrypted text most frequent character: {most_frequent_char(clean(encrypted))}")
